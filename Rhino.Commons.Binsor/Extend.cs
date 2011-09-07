@@ -99,7 +99,8 @@ namespace Rhino.Commons.Binsor
 			{
 				foreach (Type forwardedType in forwardedTypes)
 				{
-					component.kernel.RegisterHandlerForwarding(forwardedType, component.Name);
+                    //TODO: Find a way to RegisterHandlerForwarding. Skipped for now. Not needed.
+					//component.kernel.RegisterHandlerForwarding(forwardedType, component.Name);
 				}
 			}
 		}

@@ -28,6 +28,8 @@
 
 #endregion
 
+using Castle.MicroKernel.SubSystems.Configuration;
+
 namespace Rhino.Commons.Binsor
 {
 	using System;

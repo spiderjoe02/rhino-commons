@@ -28,6 +28,7 @@
 
 using System;
 using Castle.Core;
+using Castle.Core.Internal;
 using Castle.MicroKernel;
 using Castle.Windsor;
 

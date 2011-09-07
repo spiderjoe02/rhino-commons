@@ -19,7 +19,7 @@ namespace Rhino.Commons.Binsor
 
         public object Resolve(string serviceName)
         {
-            return Container.Resolve(serviceName);
+            return Container.Resolve<object>(serviceName);
         }
 
         public object Resolve(Type serviceType, string serviceName)
