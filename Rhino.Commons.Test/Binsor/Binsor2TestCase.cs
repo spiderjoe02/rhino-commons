@@ -60,10 +60,12 @@ namespace Rhino.Commons.Test.Binsor
 			IFacility[] facilities = _container.Kernel.GetFacilities();
 			foreach (IFacility facility in facilities)
 			{
-				ActiveRecordFacility ar = facility as ActiveRecordFacility;
+				//ActiveRecordFacility ar = facility as ActiveRecordFacility;
+                MyActiveRecordFacility ar = facility as MyActiveRecordFacility;
 				if (ar != null)
 				{
-					IConfiguration config = ar.FacilityConfig;
+					//IConfiguration config = ar.FacilityConfig;
+                    IConfiguration config = ar.GetFacilityConfig();
 					Assert.IsNotNull(config);
 					AssertAttribute(config, "isWeb", "true");
 					AssertAttribute(config, "isDebug", "true");
@@ -180,13 +182,13 @@ namespace Rhino.Commons.Test.Binsor
 		[Test]
 		public void CanUseLoops()
 		{
-			Fubar foo1 = (Fubar)_container.Resolve("foo_1");
+			Fubar foo1 = _container.Resolve<Fubar>("foo_1");
 			Assert.IsNotNull(foo1);
 			Assert.AreEqual(1, foo1.Foo);
-			Fubar foo2 = (Fubar)_container.Resolve("foo_2");
+            Fubar foo2 = _container.Resolve<Fubar>("foo_2");
 			Assert.IsNotNull(foo2);
 			Assert.AreEqual(2, foo2.Foo);
-			Fubar foo3 = (Fubar)_container.Resolve("foo_3");
+            Fubar foo3 = _container.Resolve<Fubar>("foo_3");
 			Assert.IsNotNull(foo3);
 			Assert.AreEqual(3, foo3.Foo);
 		}
@@ -295,7 +297,7 @@ namespace Rhino.Commons.Test.Binsor
 		[Test]
 		public void CanDefineConfigurationsForFactorySupportFacilityWithAccessor()
 		{
-			Fubar foo = (Fubar)_container.Resolve("foo_instance");
+			Fubar foo = _container.Resolve<Fubar>("foo_instance");
 			Assert.IsNotNull(foo);
 			Assert.AreEqual("Instance", foo.Foo);
 		}

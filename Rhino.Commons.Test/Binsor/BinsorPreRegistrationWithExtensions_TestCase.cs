@@ -22,7 +22,7 @@ namespace Rhino.Commons.Test.Binsor
 					.Named("gstcalculator")
 					.DependsOn(Property.ForKey("GstRate").Eq(15m)));
 
-				IWindsorInstaller installer = BinsorScript.Inline(new StringBuilder().AppendLine("extend \"gstcalculator\":")
+				IWindsorInstaller installer = (IWindsorInstaller)BinsorScript.Inline(new StringBuilder().AppendLine("extend \"gstcalculator\":")
 				                    	.AppendLine("	GstRate = decimal(50)").ToString());
 				installer.Install(container, null);
 				GstCalculator calculator = container.Resolve<GstCalculator>();

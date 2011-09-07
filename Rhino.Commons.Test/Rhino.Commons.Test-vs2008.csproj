@@ -84,33 +84,24 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\SharedLibs\Castle\Castle.ActiveRecord.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Core, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SharedLibs\Castle\Castle.Core.dll</HintPath>
+    <Reference Include="Castle.Core">
+      <HintPath>..\SharedLibs\Castle\Facilities\AutoTx\2.5.1\net35\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Facilities.ActiveRecordIntegration, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SharedLibs\Castle\Castle.Facilities.ActiveRecordIntegration.dll</HintPath>
+    <Reference Include="Castle.Facilities.ActiveRecordIntegration">
+      <HintPath>..\SharedLibs\Castle\Facilities\ActiveRecordIntegration\1.1.2.RC\net35\Castle.Facilities.ActiveRecordIntegration.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Facilities.AutomaticTransactionManagement, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SharedLibs\Castle\Castle.Facilities.AutomaticTransactionManagement.dll</HintPath>
+    <Reference Include="Castle.Facilities.AutoTx">
+      <HintPath>..\SharedLibs\Castle\Facilities\AutoTx\2.5.1\net35\Castle.Facilities.AutoTx.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Facilities.Logging, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SharedLibs\Castle\Castle.Facilities.Logging.dll</HintPath>
-    </Reference>
-    <Reference Include="Castle.MicroKernel, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SharedLibs\Castle\Castle.MicroKernel.dll</HintPath>
+    <Reference Include="Castle.Facilities.Logging">
+      <HintPath>..\SharedLibs\Castle\Windsor\2.5.3\dotNet35\loggingFacility\Castle.Facilities.Logging.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Services.Logging.Log4netIntegration, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\SharedLibs\Castle\Castle.Services.Logging.Log4netIntegration.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Windsor, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SharedLibs\Castle\Castle.Windsor.dll</HintPath>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\SharedLibs\Castle\Facilities\AutoTx\2.5.1\net35\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\SharedLibs\NHibernate\3.2.0\Required_Bins\Iesi.Collections.dll</HintPath>
@@ -148,6 +139,8 @@
     <Compile Include="Binsor\BinsorTestCase.cs" />
     <Compile Include="Binsor\EmailSender.cs" />
     <Compile Include="Binsor\FakeRepository.cs" />
+    <Compile Include="Binsor\MyActiveRecordFacility.cs" />
+    <Compile Include="Binsor\MyLoggingFacility.cs" />
     <Compile Include="CollectionTests.cs" />
     <Compile Include="DateRangeTests.cs" />
     <Compile Include="DateUtilTests.cs" />

@@ -163,10 +163,10 @@ namespace Rhino.Commons
 			return base.Resolve<T>(key);
 		}
 
-		public override object Resolve(string key)
+		public object Resolve(string key)
 		{
 			AssertNotDisposed();
-			return base.Resolve(key);
+		    return base.Resolve<object>(key);
 		}
 
 		public override object Resolve(string key, Type service)

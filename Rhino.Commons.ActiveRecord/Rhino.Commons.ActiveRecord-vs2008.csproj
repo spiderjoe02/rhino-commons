@@ -60,25 +60,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\SharedLibs\Castle\Castle.ActiveRecord.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Core, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SharedLibs\Castle\Castle.Core.dll</HintPath>
+    <Reference Include="Castle.Core">
+      <HintPath>..\SharedLibs\Castle\Facilities\AutoTx\2.5.1\net35\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Facilities.AutomaticTransactionManagement, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SharedLibs\Castle\Castle.Facilities.AutomaticTransactionManagement.dll</HintPath>
+    <Reference Include="Castle.Facilities.AutoTx">
+      <HintPath>..\SharedLibs\Castle\Facilities\AutoTx\2.5.1\net35\Castle.Facilities.AutoTx.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.MicroKernel, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SharedLibs\Castle\Castle.MicroKernel.dll</HintPath>
+    <Reference Include="Castle.Services.Transaction">
+      <HintPath>..\SharedLibs\Castle\Facilities\AutoTx\2.5.1\net35\Castle.Services.Transaction.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Services.Transaction, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SharedLibs\Castle\Castle.Services.Transaction.dll</HintPath>
-    </Reference>
-    <Reference Include="Castle.Windsor, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SharedLibs\Castle\Castle.Windsor.dll</HintPath>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\SharedLibs\Castle\Facilities\AutoTx\2.5.1\net35\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="Microsoft.Build.Utilities" />

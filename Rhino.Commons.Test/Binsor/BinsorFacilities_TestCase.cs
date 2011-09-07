@@ -46,18 +46,33 @@ namespace Rhino.Commons.Test.Binsor
 			Assert.Fail("Could not find AR Facility");
 		}
 
+        //[Test]
+        //public void CanAddConfiguarion()
+        //{
+        //    IFacility[] facilities = _container.Kernel.GetFacilities();
+        //    LoggingFacility logging = (LoggingFacility)Array.Find(facilities,
+        //                   delegate(IFacility obj)
+        //                       {
+        //                           return obj is LoggingFacility;
+        //                       });
+        //    string attribute = logging.FacilityConfig.Attributes["loggingApi"];
+        //    Assert.AreEqual("Log4net", attribute);
+        //    attribute = logging.FacilityConfig.Attributes["configFile"];
+        //    Assert.AreEqual("log4net.config", attribute);
+        //}
+
         [Test]
         public void CanAddConfiguarion()
         {
             IFacility[] facilities = _container.Kernel.GetFacilities();
-            LoggingFacility logging = (LoggingFacility)Array.Find(facilities,
+            MyLoggingFacility logging = (MyLoggingFacility)Array.Find(facilities,
                            delegate(IFacility obj)
-                               {
-                                   return obj is LoggingFacility;
-                               });
-            string attribute = logging.FacilityConfig.Attributes["loggingApi"];
+                           {
+                               return obj is MyLoggingFacility;
+                           });
+            string attribute = logging.GetFacilityConfig().Attributes["loggingApi"];
             Assert.AreEqual("Log4net", attribute);
-            attribute = logging.FacilityConfig.Attributes["configFile"];
+            attribute = logging.GetFacilityConfig().Attributes["configFile"];
             Assert.AreEqual("log4net.config", attribute);
         }
 
@@ -65,13 +80,13 @@ namespace Rhino.Commons.Test.Binsor
         public void NestedConfiguration()
         {
             IFacility[] facilities = _container.Kernel.GetFacilities();
-            LoggingFacility logging = (LoggingFacility)Array.Find(facilities,
+            MyLoggingFacility logging = (MyLoggingFacility)Array.Find(facilities,
                            delegate(IFacility obj)
                            {
-                               return obj is LoggingFacility;
+                               return obj is MyLoggingFacility;
                            });
 
-            IConfiguration child = logging.FacilityConfig.Children["NestedConfig"];
+            IConfiguration child = logging.GetFacilityConfig().Children["NestedConfig"];
             Assert.IsNotNull(child);
             string attribute = child.Attributes["something"];
             Assert.AreEqual("foo", attribute);

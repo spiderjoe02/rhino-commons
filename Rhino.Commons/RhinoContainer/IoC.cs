@@ -52,7 +52,8 @@ namespace Rhino.Commons
 
 		public static object Resolve(string serviceName)
 		{
-			return Container.Resolve(serviceName);
+			//return Container.Resolve(serviceName);
+		    return Container.Resolve<object>(serviceName);
 		}
 		
 		public static object Resolve(Type serviceType, string serviceName)

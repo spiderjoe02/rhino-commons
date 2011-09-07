@@ -29,6 +29,7 @@
 using System;
 using System.IO;
 using System.Reflection;
+using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using MbUnit.Framework;
 using Rhino.Commons;
@@ -54,7 +55,7 @@ namespace Rhino.Commons.Test.Binsor
 		[Test]
 		public void CanInstallBinsorScriptFromFile()
 		{
-			_container.Install(BinsorScript
+			_container.Install((IWindsorInstaller)BinsorScript
 				.FromFile(Path.GetFullPath(@"Binsor\Windsor2.boo"))
 				);
 
@@ -65,7 +66,7 @@ namespace Rhino.Commons.Test.Binsor
 		[Test]
 		public void CanInstallBinsorInlineScript()
 		{
-			_container.Install(BinsorScript.Inline(
+            _container.Install((IWindsorInstaller)BinsorScript.Inline(
 				@"component 'default_repository', IRepository, NHRepository:
 					lifestyle Transient"
 				));
@@ -77,7 +78,7 @@ namespace Rhino.Commons.Test.Binsor
 		[Test]
 		public void CanInstallBinsorScriptFromFileAndGenerateAssembly()
 		{
-			_container.Install(BinsorScript
+            _container.Install((IWindsorInstaller)BinsorScript
 				.FromFile(Path.GetFullPath(@"Binsor\Windsor2.boo"))
 				.GenerateAssembly()
 				);
@@ -89,13 +90,13 @@ namespace Rhino.Commons.Test.Binsor
 		[Test]
 		public void CanInstallBinsorScriptFromGeneratedAssembly()
 		{
-			_container.Install(BinsorScript
+            _container.Install((IWindsorInstaller)BinsorScript
 				.FromFile(Path.GetFullPath(@"Binsor\Windsor2.boo"))
 				.GenerateAssembly()
 				);
 
 			IWindsorContainer container = new WindsorContainer()
-				.Install(BinsorScript.FromCompiledAssembly("Windsor2.dll")
+                .Install((IWindsorInstaller)BinsorScript.FromCompiledAssembly("Windsor2.dll")
 				);
 				
 			bool has_repos = container.Kernel.HasComponent(typeof(IRepository<>));
@@ -105,7 +106,7 @@ namespace Rhino.Commons.Test.Binsor
 		[Test, ExpectedArgumentException]
 		public void InstallBinsorScriptFromInvalidAssembly_ThrowsException()
 		{
-			_container.Install(BinsorScript.FromCompiledAssembly(
+            _container.Install((IWindsorInstaller)BinsorScript.FromCompiledAssembly(
 				Assembly.GetExecutingAssembly())
 				);
 		}
@@ -117,7 +118,7 @@ namespace Rhino.Commons.Test.Binsor
 				Path.GetFullPath(@"Binsor\Windsor2.boo"), "", _container,
 				BooReader.GenerationOptions.Memory);
 
-			_container.Install(BinsorScript.FromRunner(runner));
+			_container.Install((IWindsorInstaller)BinsorScript.FromRunner(runner));
 
 			bool has_repos = _container.Kernel.HasComponent(typeof(IRepository<>));
 			Assert.IsTrue(has_repos, "should have generic repository!");
@@ -126,7 +127,7 @@ namespace Rhino.Commons.Test.Binsor
 		[Test, Ignore("Failing")]
 		public void CanInstallBinsorScriptWithImportedNamespaces()
 		{
-			_container.Install(BinsorScript
+            _container.Install((IWindsorInstaller)BinsorScript
 				.FromFile(Path.GetFullPath(@"Binsor\CustomNamespaces.boo"))
 				.ImportNamespaces("Rhino.Commons.Test")
 				);
@@ -142,10 +143,10 @@ namespace Rhino.Commons.Test.Binsor
 				.FromFile(Path.GetFullPath(@"Binsor\Windsor2.boo"))
 				.Reusable();
 
-			_container.Install(fromFile);
+            _container.Install((IWindsorInstaller)fromFile);
 
 			IWindsorContainer container = new WindsorContainer()
-				.Install(fromFile);
+                .Install((IWindsorInstaller)fromFile);
 
 			bool has_repos = container.Kernel.HasComponent(typeof(IRepository<>));
 			Assert.IsTrue(has_repos, "should have generic repository!");

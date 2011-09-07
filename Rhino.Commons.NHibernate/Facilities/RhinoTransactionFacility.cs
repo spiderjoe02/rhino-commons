@@ -26,9 +26,9 @@
 // THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #endregion
 
-
+using System;
 using Castle.Core;
-using Castle.Facilities.AutomaticTransactionManagement;
+using Castle.Facilities.AutoTx;
 using Castle.Services.Transaction;
 using Rhino.Commons.Facilities;
 
@@ -52,20 +52,31 @@ namespace Rhino.Commons
 			}
 		}
 
-		private void OnNewTransaction(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode, bool distributedTransaction)
-		{
-			if (!transaction.DistributedTransaction)
-			{
-				transaction.Enlist(new RhinoTransactionResourceAdapter(transactionMode));
-			}
-		}
+        //private void OnNewTransaction(ITransaction transaction, TransactionMode transactionMode, IsolationMode isolationMode, bool distributedTransaction)
+        //{
+        //    //if (!transaction.DistributedTransaction)
+        //    if (!transaction.IsAmbient)
+        //    {
+        //        transaction.Enlist(new RhinoTransactionResourceAdapter(transactionMode));
+        //    }
+        //}
 
-		private void Kernel_ComponentCreated(ComponentModel model, object instance)
+        private void OnNewTransaction(object sender, TransactionEventArgs e)
+        {
+            var transaction = e.Transaction;
+            if (transaction.IsAmbient)
+            {
+                transaction.Enlist(new RhinoTransactionResourceAdapter(transaction.TransactionMode));
+            }
+        }
+
+	    private void Kernel_ComponentCreated(ComponentModel model, object instance)
 		{
 			if (model.Service != null && model.Service == typeof(ITransactionManager))
 			{
 				ITransactionManager txMgr = (ITransactionManager) instance;
-				txMgr.TransactionCreated += new TransactionCreationInfoDelegate(OnNewTransaction);
+				//txMgr.TransactionCreated += new TransactionCreationInfoDelegate(OnNewTransaction);
+                txMgr.TransactionCompleted += new System.EventHandler<TransactionEventArgs>(OnNewTransaction);
 			}	
 		}
 	}
