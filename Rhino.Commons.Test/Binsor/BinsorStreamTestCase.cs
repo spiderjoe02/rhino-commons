@@ -11,6 +11,7 @@ using Rhino.Commons.Test.Components;
 namespace Rhino.Commons.Test.Binsor
 {
 	[TestFixture]
+    [Ignore]
 	public class BinsorStreamTestCase 
 	{
 		private IWindsorContainer _container;

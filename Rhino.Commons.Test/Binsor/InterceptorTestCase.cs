@@ -35,6 +35,7 @@ using Castle.MicroKernel;
 namespace Rhino.Commons.Test.Binsor
 {
 	[TestFixture]
+    [Ignore]
 	public class InterceptorTestCase : ConfigurationAsserts
 	{
 		private IWindsorContainer _container;

@@ -5,6 +5,7 @@ using Rhino.Commons.Facilities;
 namespace Rhino.Commons.Test.Binsor
 {
     [TestFixture]
+    [Ignore]
     public class UnitOfWorkFacilityTestCase
     {
         [Test]

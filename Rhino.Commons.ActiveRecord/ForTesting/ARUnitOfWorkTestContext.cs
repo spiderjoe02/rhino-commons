@@ -76,8 +76,8 @@ namespace Rhino.Commons.ForTesting
             get
             { 
                 //TODO: This is hack for rev 1748. there should be a better way. similiar to hack on UnitOfWorkTestContext.BuildSessionFactory()
-                if (Configuration.GetProperty(AREnvironment.ProxyFactoryFactoryClass) == null)
-                    Configuration.Properties[AREnvironment.ProxyFactoryFactoryClass] = "NHibernate.ByteCode.Castle.ProxyFactoryFactory, NHibernate.ByteCode.Castle";
+                //if (Configuration.GetProperty(AREnvironment.ProxyFactoryFactoryClass) == null)
+                //    Configuration.Properties[AREnvironment.ProxyFactoryFactoryClass] = "NHibernate.ByteCode.Castle.ProxyFactoryFactory, NHibernate.ByteCode.Castle";
 
                 return sessionFactory = sessionFactory ?? Configuration.BuildSessionFactory();
             }

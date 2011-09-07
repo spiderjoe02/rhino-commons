@@ -12,6 +12,7 @@ namespace Rhino.Commons.Test.Binsor
 	using Castle.Facilities.ActiveRecordIntegration;
 
 	[TestFixture]
+    [Ignore]
     public class BinsorFacilities_TestCase : BaseTest
     {
         private IWindsorContainer _container;

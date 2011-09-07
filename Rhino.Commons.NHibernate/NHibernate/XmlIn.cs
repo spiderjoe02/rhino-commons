@@ -85,7 +85,8 @@ namespace Rhino.Commons
 				arrayList.Add(o);
 			}
 			this.values = arrayList.ToArray();
-			expr = Expression.In(propertyName, arrayList);
+			//expr = Expression.In(propertyName, arrayList);
+	        expr = Restrictions.In(propertyName, arrayList);
 		}
 
 		public override string ToString()

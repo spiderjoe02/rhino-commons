@@ -7,6 +7,7 @@ using Rhino.Commons.Test.Components;
 namespace Rhino.Commons.Test.Binsor
 {
 	[TestFixture]
+    [Ignore]
 	public class ComponentForwardingTestCase : ConfigurationAsserts
 	{
 		private IWindsorContainer _container;

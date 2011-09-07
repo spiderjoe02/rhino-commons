@@ -353,8 +353,8 @@ namespace Rhino.Commons.ForTesting
             private ISessionFactory BuildSessionFactory()
             {
                 //TODO: This is hack for rev 1705. there should be a better way
-                if (Configuration.GetProperty(Environment.ProxyFactoryFactoryClass) == null)
-                    Configuration.Properties[Environment.ProxyFactoryFactoryClass] = "NHibernate.ByteCode.Castle.ProxyFactoryFactory, NHibernate.ByteCode.Castle";
+                //if (Configuration.GetProperty(Environment.ProxyFactoryFactoryClass) == null)
+                //    Configuration.Properties[Environment.ProxyFactoryFactoryClass] = "NHibernate.ByteCode.Castle.ProxyFactoryFactory, NHibernate.ByteCode.Castle";
             	  ISessionFactory sessionFactory = Configuration.BuildSessionFactory();
 
                 foreach (INHibernateInitializationAware initializer in GetNHibernateInitializers())

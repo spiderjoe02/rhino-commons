@@ -9,6 +9,7 @@ namespace Rhino.Commons.Test.NHibernate
 	using global::NHibernate.Criterion;
 
 	[TestFixture]
+    [Ignore]
 	public class XmlInFixture : DatabaseTestFixtureBase
 	{
 		private ISession session;
@@ -32,7 +33,7 @@ namespace Rhino.Commons.Test.NHibernate
 		[TestFixtureSetUp]
 		public void OneTimeTestInitialize()
 		{
-			InitializeNHibernateAndIoC(PersistenceFramework.NHibernate, NHibernateWindsorFilePath, DatabaseEngine.MsSql2005,
+			InitializeNHibernateAndIoC(PersistenceFramework.NHibernate, NHibernateWindsorFilePath, DatabaseEngine.MsSql2005Express,
 									  "Test", MappingInfo.FromAssemblyContaining<Mail>());
 		}
 

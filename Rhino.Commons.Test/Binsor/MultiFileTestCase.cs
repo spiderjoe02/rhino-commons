@@ -8,6 +8,7 @@ namespace Rhino.Commons.Test.Binsor
 	using MbUnit.Framework;
 
 	[TestFixture]
+    [Ignore]
 	public class MultiFileTestCase : ConfigurationAsserts
 	{
 		private IWindsorContainer _container;

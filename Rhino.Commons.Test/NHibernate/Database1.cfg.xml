@@ -8,5 +8,6 @@
 		<property name="connection.release_mode">on_close</property>
 		<property name="cache.provider_class">Rhino.Commons.Test.NHibernate.MockCacheProvider, Rhino.Commons.Test</property>
 		<property name="cache.use_second_level_cache">true</property>
+    <property name="show_sql">true</property>
 	</session-factory>
 </hibernate-configuration>

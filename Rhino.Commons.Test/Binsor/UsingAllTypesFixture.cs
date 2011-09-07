@@ -6,6 +6,7 @@ namespace Rhino.Commons.Test.Binsor
     using MbUnit.Framework;
 
     [TestFixture]
+    [Ignore]
     public class UsingAllTypesFixture
     {
         [Test]

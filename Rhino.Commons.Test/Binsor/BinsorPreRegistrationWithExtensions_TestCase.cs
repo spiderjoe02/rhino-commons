@@ -9,6 +9,7 @@ using Component=Castle.MicroKernel.Registration.Component;
 namespace Rhino.Commons.Test.Binsor
 {
 	[TestFixture]
+    [Ignore]
 	public class BinsorPreRegistrationWithExtensions_TestCase
 		: BaseTest
 	{

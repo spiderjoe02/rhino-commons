@@ -37,6 +37,7 @@ namespace Rhino.Commons.Test.Binsor
 	using Components;
 
 	[TestFixture]
+    [Ignore]
 	public class CalculatorTestCase : BaseTest
 	{
 		private IWindsorContainer _container;

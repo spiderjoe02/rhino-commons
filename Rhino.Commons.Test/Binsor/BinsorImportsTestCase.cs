@@ -36,6 +36,7 @@ using Rhino.Commons.Binsor;
 namespace Rhino.Commons.Test.Binsor
 {
 	[TestFixture]
+    [Ignore]
 	public class BinsorImportsTestCase : BaseTest
 	{
 		private IWindsorContainer _container;

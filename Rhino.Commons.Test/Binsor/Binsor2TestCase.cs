@@ -41,6 +41,7 @@ using Rhino.Commons.Test.Components;
 namespace Rhino.Commons.Test.Binsor
 {
 	[TestFixture]
+    [Ignore]
 	public class Binsor2TestCase : ConfigurationAsserts
 	{
 		private IWindsorContainer _container;
